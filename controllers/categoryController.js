@@ -55,7 +55,18 @@ module.exports.findAll = async (req, res) => {
             items
         );
 
-        const 
+        const categories = await Category.findAll({
+            where: {
+                isDeleted: 0
+            },
+            limit: parseInt(paginationData.pageSize),
+            offset: parseInt(paginationData.offset)
+        });
+
+        return res.json({
+            categories,
+            paginationData
+        });
         
     } catch (e) {
         
