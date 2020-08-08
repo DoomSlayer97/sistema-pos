@@ -64,7 +64,7 @@ module.exports.findAll = async (req, res) => {
         });
 
         return res.json({
-            users,
+            categories,
             paginationData
         });
         
